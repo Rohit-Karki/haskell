@@ -1,0 +1,3 @@
+-- shall we be pure or impure 
+-- Pure -> If program are mathematical function 
+-- Impure -> Program have side effects
