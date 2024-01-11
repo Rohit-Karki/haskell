@@ -1,0 +1,17 @@
+-- What Is An I/O Action?
+-- Have the type IO t
+-- Produce an effect when performed, but not when evaluated. That is, they only produce an effect when called by something else in an I/O context.
+-- Any expression may produce an action as its value, but the action will not perform I/O until it is executed inside another I/O action (or it is main)
+
+{-
+    Haskell is 
+        - lazy (great for modularity)
+        - difficult to know when does it evaluate a function
+        - pure ( functions don't have any "side effect", and always 
+          return same result for the same input )
+
+        - Problem: how do we actually have side effects (writing to the 
+        screen/disk, networking, etc)
+-}
+
+------ do is a convenient way to define a sequence of actions. --------
