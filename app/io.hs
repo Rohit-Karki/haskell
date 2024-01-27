@@ -55,3 +55,27 @@ add :: Integer -> Integer -> IO (Integer)
 add a b = do
     putStrLn "hello world"
     return (a+b)
+
+
+
+-- hw is IO action which works with the environment (terminal) and performs the action(printing)
+hw :: IO ()
+hw = putStrLn "Rohit Raj Karki"
+
+-- greet is a IO action 
+greet :: IO String
+greet = do 
+    putStrLn "What is your name?"
+    name <- getLine 
+    let uname = map toUpper name
+    putStrLn ("Hello " ++ name ++ "." )
+
+main :: IO ()
+main = do
+    i <- getLine
+    if i /= "quit" then do
+        putStrLn ("Input" ++ i)
+        main 
+    else 
+        -- Encapsulate the empty tuple to the IO action
+        return ()

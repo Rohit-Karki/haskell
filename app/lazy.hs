@@ -1,5 +1,3 @@
-{-# LANGUAGE TemplateHaskell #-}
-
 -- Expressions are evaluated by a stepwise process of applying functions to their arguments.
 fmap :: (Functor f) => (a -> b) -> f a -> f b
 
