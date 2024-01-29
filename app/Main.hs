@@ -1,9 +1,20 @@
-module Main where
-import Web.Scotty
-import Data.Monoid(mconcat)
+main = putStrLn myhtml
 
+myhtml = makeHtml "Hello title" "Hello, world!"
 
-main = scotty 3000 $
-    get "/:word" $ do
-        word <- param "word"
-        html $ mconcat ["<h1>", word, " World!</h1>"]
+makeHtml title content = html_ (head_ (title_ title) <> body_ content)
+
+html_ content = "<html>" <> content <> "</html>"
+
+body_ content = "<body>" <> content <> "</body>"
+
+head_ content = "<head>" <> content <> "</head>"
+
+title_ content = "<title>" <> content <> "</title>"
+
+p_ :: String -> Structure
+
+-- newtype <type-name> = <constructor> <existing-type>
+newtype Html = Html string
+
+newtype Structure = Structure string
